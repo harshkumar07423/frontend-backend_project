@@ -1,0 +1,332 @@
+/* ============================================================
+   style.css — BhumiSetu Dashboard Styles
+   ============================================================ */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f7fc 0%, #eef2f5 100%);
+    color: #1a2c3e;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+/* ---- Layout ---- */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+}
+
+/* ---- Navbar ---- */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 0.9rem 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: -0.3px;
+    color: #1f5e3a;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: #2b7a4b;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #2c3e4e;
+    transition: background 0.2s, color 0.2s;
+    padding: 0.4rem 0.8rem;
+    border-radius: 2rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: #e9f3ef;
+    color: #1f5e3a;
+}
+
+/* ---- Hero ---- */
+.hero {
+    text-align: center;
+    margin: 2rem 0 2.5rem 0;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    background: linear-gradient(120deg, #1f5e3a, #3b8b5e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 0.6rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #4a6272;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* ---- Dashboard Grid ---- */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* ---- Cards ---- */
+.card {
+    background: white;
+    border-radius: 1.8rem;
+    padding: 1.5rem 1.8rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #eef2f0;
+    padding-bottom: 0.8rem;
+}
+
+.card-header i {
+    font-size: 2rem;
+    color: #2b7a4b;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* ---- Forms ---- */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+    color: #2c5a47;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cfdfd7;
+    border-radius: 1.2rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: #fefefe;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #2b7a4b;
+    box-shadow: 0 0 0 3px rgba(43, 122, 75, 0.2);
+}
+
+/* ---- Buttons ---- */
+button {
+    background: #1f5e3a;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+button:hover {
+    background: #134b2e;
+    transform: scale(0.98);
+}
+
+/* Pay button specific colour */
+.btn-pay {
+    background: #2c6e9e;
+}
+
+.btn-pay:hover {
+    background: #1d5078;
+}
+
+/* Small "View" buttons inside recent list */
+.reload-btn {
+    width: auto !important;
+    padding: 0.2rem 0.8rem !important;
+    font-size: 0.7rem !important;
+    background: #3f8b67;
+}
+
+.reload-btn:hover {
+    background: #2c6e4f;
+}
+
+/* ---- Info Box ---- */
+.info-box {
+    margin-top: 1.5rem;
+    background: #f4f9f6;
+    padding: 1rem;
+    border-radius: 1.2rem;
+    font-size: 0.9rem;
+    border-left: 4px solid #2b7a4b;
+}
+
+.info-box--yellow {
+    background: #fef5e7;
+    border-left-color: #e6a817;
+}
+
+/* ---- Record Items ---- */
+.record-item {
+    background: #ffffffdd;
+    padding: 0.7rem;
+    margin-bottom: 0.6rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-size: 0.85rem;
+    border: 1px solid #e2ece6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ---- Badge ---- */
+.badge {
+    background: #e9f3ef;
+    color: #1f5e3a;
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* ---- Message ---- */
+.message {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #2b7a4b;
+    font-weight: 500;
+}
+
+/* ---- Divider ---- */
+hr {
+    margin: 12px 0;
+    border: 0;
+    height: 1px;
+    background: #e2e9e4;
+}
+
+/* ---- Stats Bar ---- */
+.stats-bar {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #ffffffc9;
+    border-radius: 1.5rem;
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+}
+
+/* ---- Footer ---- */
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    border-top: 1px solid #dce9e2;
+    font-size: 0.8rem;
+    color: #5d7c6b;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 700px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ---- Spinner ---- */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #cfdfd7;
+  border-top-color: #2b7a4b;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---- Add Record Form ---- */
+#addRecordForm {
+  margin-top: 1rem;
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; } }

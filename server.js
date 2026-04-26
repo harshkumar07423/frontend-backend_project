@@ -13,7 +13,7 @@ const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/bhumisetu"
 // ── Middleware ──────────────────────────────────────────────────
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // ── MongoDB Connection ──────────────────────────────────────────
 mongoose
@@ -165,7 +165,7 @@ app.post("/api/tax/pay", async (req, res) => {
 
 // ── Fallback → serve frontend ────────────────────────────────────
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+  res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 // ── Start ────────────────────────────────────────────────────────
