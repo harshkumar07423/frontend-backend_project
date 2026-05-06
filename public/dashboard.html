@@ -23,6 +23,7 @@
       <a href="#" id="navRecords"><i class="fas fa-file-alt"></i> Land Records</a>
       <a href="#" id="navTax"><i class="fas fa-rupee-sign"></i> Tax Payment</a>
       <a href="#" id="navAdd"><i class="fas fa-plus-circle"></i> Add Record</a>
+      <a href="#" id="themeToggle" class="theme-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></a>
     </div>
   </nav>
 
@@ -38,10 +39,14 @@
   </div>
 
   <!-- Dashboard Cards -->
-  <div class="dashboard" id="dashboardContainer">
+  <div class="dashboard-stack" id="dashboardContainer">
 
-    <!-- LEFT CARD: LAND RECORDS -->
-    <div class="card" id="landRecordCard">
+    <!-- FEATURE ROW: LAND RECORDS -->
+    <div class="feature-row">
+      <div class="feature-image">
+        <img src="land_records.png" alt="Digital Land Records Map">
+      </div>
+      <div class="card" id="landRecordCard">
       <div class="card-header">
         <i class="fas fa-draw-polygon"></i>
         <h2>🔍 Land Records</h2>
@@ -66,9 +71,14 @@
         </div>
       </div>
     </div>
+    </div>
 
-    <!-- RIGHT CARD: PROPERTY TAX -->
-    <div class="card" id="taxCard">
+    <!-- FEATURE ROW: PROPERTY TAX -->
+    <div class="feature-row reverse">
+      <div class="feature-image">
+        <img src="property_tax.png" alt="Secure Property Tax">
+      </div>
+      <div class="card" id="taxCard">
       <div class="card-header">
         <i class="fas fa-coins"></i>
         <h2>💰 Property Tax</h2>
@@ -98,8 +108,9 @@
         <strong>Instant receipt</strong> — payment updates MongoDB record live.
       </div>
     </div>
+    </div>
 
-  </div><!-- /dashboard -->
+  </div><!-- /dashboard-stack -->
 
   <!-- ADD NEW RECORD CARD -->
   <div class="card" id="addRecordCard" style="margin-top:2rem;">

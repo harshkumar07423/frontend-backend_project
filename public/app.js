@@ -278,7 +278,34 @@ document.getElementById("navAdd").addEventListener("click", e => {
   e.preventDefault(); document.getElementById("addRecordCard").scrollIntoView({ behavior: "smooth" });
 });
 
+// ── THEME TOGGLE (Light / Dark Mode) ───────────────────────────
+const themeToggleBtn = document.getElementById("themeToggle");
+
+function initTheme() {
+  const currentTheme = localStorage.getItem("theme");
+  if (currentTheme === "dark") {
+    document.body.classList.add("dark-theme");
+    if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+}
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.body.classList.toggle("dark-theme");
+    
+    if (document.body.classList.contains("dark-theme")) {
+      localStorage.setItem("theme", "dark");
+      themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+      localStorage.setItem("theme", "light");
+      themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+  });
+}
+
 // ── INIT ───────────────────────────────────────────────────────
 window.addEventListener("load", () => {
   renderRecentList();
+  initTheme();
 });
