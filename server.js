@@ -163,7 +163,12 @@ app.post("/api/tax/pay", async (req, res) => {
   }
 });
 
-// ── Fallback → serve frontend ────────────────────────────────────
+// ── Routing ──────────────────────────────────────────────────────
+app.get("/dashboard", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/dashboard.html"));
+});
+
+// ── Fallback → serve frontend (login page) ────────────────────────
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });

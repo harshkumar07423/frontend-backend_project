@@ -2,8 +2,20 @@
    app.js — BhumiSetu Frontend (MongoDB-backed API)
    ============================================================ */
 
-const API_BASE = ""; // same origin — server serves frontend from /public
+const API_BASE = (window.location.port === "5500" || window.location.protocol === "file:") 
+  ? "http://localhost:3000" 
+  : ""; // Handle Live Server or local file vs production
 
+// Helper to safely parse JSON or show raw text error
+async function safeFetchJson(res) {
+  const text = await res.text();
+  if (!text) throw new Error("Empty response from server. Is the backend running?");
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    throw new Error(`Server returned non-JSON: ${text.slice(0, 60)}...`);
+  }
+}
 // ── UTILS ──────────────────────────────────────────────────────
 function showLoading(el, text = "Loading…") {
   el.innerHTML = `<span class="spinner"></span> ${text}`;
@@ -53,7 +65,7 @@ async function triggerLandSearch(surveyNum) {
 
   try {
     const res = await fetch(`${API_BASE}/api/records/search?q=${encodeURIComponent(surveyNum)}`);
-    const data = await res.json();
+    const data = await safeFetchJson(res);
 
     if (data.success && data.record) {
       const r = data.record;
@@ -111,7 +123,7 @@ async function updateTaxDisplay() {
 
   try {
     const res  = await fetch(`${API_BASE}/api/tax?id=${encodeURIComponent(propertyId)}&year=${assessmentYear}`);
-    const data = await res.json();
+    const data = await safeFetchJson(res);
 
     if (!data.success) {
       taxDiv.innerHTML = `<i class="fas fa-times-circle"></i> ${data.error}`;
@@ -177,7 +189,7 @@ document.getElementById("payNowBtn").addEventListener("click", async () => {
         assessmentYear,
       }),
     });
-    const data = await res.json();
+    const data = await safeFetchJson(res);
 
     if (data.success) {
       paymentMsg.style.color = "#2b7a4b";
@@ -233,7 +245,7 @@ document.getElementById("submitNewRecord").addEventListener("click", async () =>
       headers: { "Content-Type": "application/json" },
       body:    JSON.stringify(payload),
     });
-    const data = await res.json();
+    const data = await safeFetchJson(res);
 
     if (data.success) {
       msg.style.color = "#2b7a4b";
